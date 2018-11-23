@@ -1,2 +1,19 @@
 server:
-  port: 8080
+  port: 8761
+
+eureka:
+  instance:
+    hostname: 127.0.0.1
+    prefer-ip-address: true
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+#login user and password
+spring:
+  security:
+    user:
+      name: user
+      password: user
